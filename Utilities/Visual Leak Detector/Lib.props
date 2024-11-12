@@ -6,7 +6,7 @@
   </PropertyGroup>
   <PropertyGroup>
     <IncludePath>$(ThisFileDirectory)\include;$(ThisFileDirectory);$(IncludePath)</IncludePath>
-    <_PropertySheetDisplayName>Vld 2.4 rc2</_PropertySheetDisplayName>
+    <_PropertySheetDisplayName>Vld 2.5.1</_PropertySheetDisplayName>
     <LibraryPath>$(ThisFileDirectory)\Lib\$(PlatformTarget);$(ThisFileDirectory)\Lib\$(PlatformTarget)\vs$(PlatformToolsetVersion);$(LibraryPath)</LibraryPath>
     <ExecutablePath>$(ThisFileDirectory)\bin\$(PlatformTarget);$(ExecutablePath)</ExecutablePath>
   </PropertyGroup>

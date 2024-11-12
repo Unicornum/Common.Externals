@@ -22,7 +22,7 @@ set CppCheckExe=$(SolutionDir)Solution\Solution\Externals\Utilities\CppCheck\cpp
 set CppCheckSuppress1=$(SolutionDir)Solution\CppCheck.suppress.hpp
 set CppCheckSuppress2=$(SolutionDir)Solution\Solution\Externals\Utilities\CppCheck\CppCheck.suppress.hpp
 set ParamsDefault=--enable=all --inline-suppr --inconclusive --quiet
-set ParamsTemplate=--template "{file}({line}): {severity} (suppress_id = {id}): {message}"
+set ParamsTemplate=--template="{file}({line}): {severity} (suppress_id = {id}): {message}"
 set ParamsSuppress=--suppressions-list="%CppCheckSuppress1%" --suppressions-list="%CppCheckSuppress2%"
 set ParamsPlatform=--std=c++11 --platform=win64
 set ParamsDefine=--force
