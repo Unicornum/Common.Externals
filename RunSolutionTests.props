@@ -13,7 +13,7 @@ echo ***************************** Run solution tests **************************
 
 set TEST_RUN="$(SolutionDir)$(Configuration)\Test\x64\Test.Solution.exe"
 set TEST_RUN_REPORT="$(SolutionDir)Solution\Solution\(Documentation)\Solution.tests.html"
-set TEST_RUN_PARAMS=--silent --doxygen --file %TEST_RUN_REPORT%
+set TEST_RUN_PARAMS=--silent --report --file %TEST_RUN_REPORT%
 
 %TEST_RUN% %TEST_RUN_PARAMS%
 
