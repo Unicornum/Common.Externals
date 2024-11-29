@@ -3,7 +3,9 @@
   <!-- Navigation index tabs for HTML output -->
   <navindex>
     <tab type="mainpage" visible="yes" title="Главная" intro=""/>
-    <tab type="modules" visible="yes" title="" intro=""/>
+    <tab type="user" url="@ref Releases" title="Релизы"/>
+    <tab type="user" url="@ref Documentation" title="Документация"/>
+    <tab type="user" url="@ref About" title="Обо мне"/>
   </navindex>
 
   <!-- Layout definition for a group page -->
