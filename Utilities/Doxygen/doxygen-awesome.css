@@ -2012,6 +2012,10 @@ hr {
   max-width: 100%;
 }
 
+img {
+  max-width: 100%;
+}
+
 @media screen and (max-width: 767px) {
     .contents .dyncontent > .center, .contents > center {
         margin-left: calc(0px - var(--spacing-large));
