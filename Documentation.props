@@ -44,45 +44,6 @@ goto EndDocumentation
 echo ... successful.
 )
 
-echo Remove missing files...
-svn status %PathToResultDirectory% &gt; %TEMP%\Externals.Documentation.Status.txt
-
-for /f "tokens=1,2*" %%a in (%TEMP%\Externals.Documentation.Status.txt) do (
-
-if "%%a"=="!" (
-echo Missing: %%b
-svn rm %%b
-)
-
-)
-
-if ERRORLEVEL 1 (
-echo ... failed [%ERRORLEVEL%].
-goto EndDocumentation
-) else (
-echo ... successful.
-)
-
-echo Add new files...
-svn add --force %PathToResultDirectory%
-
-if ERRORLEVEL 1 (
-echo ... failed [%ERRORLEVEL%].
-goto EndDocumentation
-) else (
-echo ... successful.
-)
-
-echo Commit documentation...
-svn.exe commit %PathToResultDirectory% -m "[%VERSION_PRODUCT_NAME%] Update documentation (v%VERSION_SOLUTION%)."
-
-if ERRORLEVEL 1 (
-echo ... failed [%ERRORLEVEL%].
-goto EndDocumentation
-)
-
-echo ... successful.
-
 :EndDocumentation
 </Command>
       <Message />

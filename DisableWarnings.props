@@ -9,6 +9,9 @@
     <ClCompile>
       <AdditionalOptions>/experimental:external /external:env:EXCLUDE_WARNIN_DIR /external:W0 /external:templates- %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
+    <PostBuildEvent>
+      <Command>echo DisableWarnings.props: warning : deprecated, using Default.props instead.</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <BuildMacro Include="EXCLUDE_WARNIN_DIR">

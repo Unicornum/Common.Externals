@@ -22,9 +22,15 @@ rem ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 rem The build attribute is made from the script
 rem ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-for /F "tokens=* USEBACKQ" %%F IN (`"%ProgramFiles(x86)%\Microsoft Visual Studio\Installer\vswhere.exe" -latest -products * -requires Microsoft.Component.MSBuild -find MSBuild\**\Bin\MSBuild.exe`) do (
-set MsBuild=%%F
+if exist .\Solution\MsBuild.auto.cmd (
+  call .\Solution\MsBuild.auto.cmd
+) else (
+  for /F "tokens=* USEBACKQ" %%F IN (`"%ProgramFiles(x86)%\Microsoft Visual Studio\Installer\vswhere.exe" -latest -products * -requires Microsoft.Component.MSBuild -find MSBuild\**\Bin\MSBuild.exe`) do (
+  set MsBuild="%%F"
+  )
 )
+
+echo Using %MsBuild%
 
 set USING_SCRIPT_BILDING=TRUE
 
