@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets">
+    <Import Project="..\Externals\Externals.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros">
+    <ThisFileDirectory>$(MSBuildThisFileDirectory)</ThisFileDirectory>
+  </PropertyGroup>
+  <PropertyGroup>
+    <IncludePath>$(ThisFileDirectory)include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ThisFileDirectory)Lib\$(PlatformTarget)\$(PlatformToolsetDirectory);$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <Link />
+    <Link>
+      <LibraryDependencies>Extension.Boost.$(Configuration);Extension.Cpp.$(Configuration);Extension.Std.$(Configuration);Extension.Std.Fast.$(Configuration);Extension.Std.Memory.$(Configuration);Extension.Testing.$(Configuration);%(LibraryDependencies)</LibraryDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="ThisFileDirectory">
+      <Value>$(ThisFileDirectory)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>
