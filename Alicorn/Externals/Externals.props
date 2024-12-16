@@ -6,13 +6,10 @@
   </PropertyGroup>
   <PropertyGroup>
     <IncludePath>$(ThisFileDirectory)include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ThisFileDirectory)Lib\$(PlatformTarget)\$(PlatformToolsetDirectory);$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup>
     <Link />
-    <Link>
-      <LibraryDependencies>Extension.Boost.$(Configuration);Extension.Cpp.$(Configuration);Extension.Std.$(Configuration);Extension.Std.Fast.$(Configuration);Extension.Std.Memory.$(Configuration);Extension.Testing.$(Configuration);%(LibraryDependencies)</LibraryDependencies>
-    </Link>
+    <Link />
   </ItemDefinitionGroup>
   <ItemGroup>
     <BuildMacro Include="ThisFileDirectory">
