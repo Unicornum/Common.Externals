@@ -1,4 +1,4 @@
 
 #pragma once
 
-#define __GTEST_VERSION uT("1.10.0")
+#define __GTEST_VERSION uT("1.15.2")
