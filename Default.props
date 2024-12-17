@@ -46,7 +46,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>$(PchFileName)</PrecompiledHeaderFile>
       <CompileAs>CompileAsCpp</CompileAs>
-      <CppLanguageStandard>c++14</CppLanguageStandard>
+      <CppLanguageStandard>c++1z</CppLanguageStandard>
       <DebugInformationFormat>$(UniversalDebugInformationFormat)</DebugInformationFormat>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <ExceptionHandling>$(UniversalExceptionHandling)</ExceptionHandling>
