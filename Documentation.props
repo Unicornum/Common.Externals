@@ -6,6 +6,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros">
     <ThisFileDirectory>$(MSBuildThisFileDirectory)</ThisFileDirectory>
+    <DocumentationThisFileDirectory>$(MSBuildThisFileDirectory)</DocumentationThisFileDirectory>
   </PropertyGroup>
   <PropertyGroup />
   <ItemDefinitionGroup>
@@ -15,7 +16,7 @@
 echo.
 echo ************************* Generation documentation **************************
 
-set PathToDoxygenDirectory=$(ThisFileDirectory)Utilities\Doxygen
+set PathToDoxygenDirectory=$(DocumentationThisFileDirectory)Utilities\Doxygen
 set PathToIniFile=%PathToDoxygenDirectory%\universal.doxygen
 set PathToResultDirectory=$(SolutionDir)Solution\Solution\(Documentation)\html
 set PathToLogFile=%PathToResultDirectory%\Documentation.result.txt
@@ -52,6 +53,9 @@ echo ... successful.
   <ItemGroup>
     <BuildMacro Include="ThisFileDirectory">
       <Value>$(ThisFileDirectory)</Value>
+    </BuildMacro>
+    <BuildMacro Include="DocumentationThisFileDirectory">
+      <Value>$(DocumentationThisFileDirectory)</Value>
     </BuildMacro>
   </ItemGroup>
 </Project>
