@@ -11,7 +11,7 @@ echo Copy $(ProjectName) header files...
 
 if "$(PartName)" == "Tools" (
 set PathToSourceDirectory=$(ProjectDir)Externals
-set PathToDestDirectory=$(ThisFileDirectory)$(LibraryName)\$(PartName)\include\$(LibraryName)\$(LibraryPartName)
+set PathToDestDirectory=$(ExternalsBuildDirectory)$(LibraryName)\$(PartName)\include\$(LibraryName)\$(LibraryPartName)
 set CopyFiles=*.hpp *.inl *.cpp *.rc
 ) else (
 
@@ -28,9 +28,9 @@ set PathToSourceDirectory=!PathToSourceDirectory!\$(LibraryName)
 )
 
 if "$(LibraryName)" == "$(LibraryPartName)" (
-set PathToDestDirectory=$(ThisFileDirectory)$(LibraryName)\$(PartName)\include\$(LibraryName)
+set PathToDestDirectory=$(ExternalsBuildDirectory)$(LibraryName)\$(PartName)\include\$(LibraryName)
 ) else (
-set PathToDestDirectory=$(ThisFileDirectory)$(LibraryName)\$(PartName)\include\$(LibraryName)\$(LibraryPartName)
+set PathToDestDirectory=$(ExternalsBuildDirectory)$(LibraryName)\$(PartName)\include\$(LibraryName)\$(LibraryPartName)
 )
 
 )
@@ -44,7 +44,7 @@ robocopy !PathToSourceDirectory! !PathToDestDirectory! !CopyFiles! /MIR &gt; nul
 if errorlevel 4 echo Externals.Build.props: error: copy header files (%errorlevel%)
 )
 
-copy "$(ProjectDir)..\*.hpp" "$(ThisFileDirectory)$(LibraryName)\$(PartName)\include\$(LibraryName)\" /Y 
+copy "$(ProjectDir)..\*.hpp" "$(ExternalsBuildDirectory)$(LibraryName)\$(PartName)\include\$(LibraryName)\" /Y 
 
 %(Command)</Command>
     </PreBuildEvent>

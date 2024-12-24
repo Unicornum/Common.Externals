@@ -22,6 +22,7 @@ echo modules=*\Debug\Test\x64\*.dll
 echo excluded_modules=*\Coverage.ignore\*
 echo sources=*\Solution\Solution\*
 echo excluded_sources=*\Externals\*
+echo excluded_sources=*\Externals.Vcpkg\*
 echo excluded_sources=*\*_test.cpp
 echo excluded_sources=*\test.*\*
 echo excluded_sources=*\*.mock.*

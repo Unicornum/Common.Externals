@@ -8,6 +8,7 @@
   <PropertyGroup Label="UserMacros">
     <ThisFileDirectory>$(MSBuildThisFileDirectory)</ThisFileDirectory>
     <LibraryPartName>$([System.String]::new($(ProjectShortName)).Replace($(LibraryName)., ''))</LibraryPartName>
+    <ExternalsBuildDirectory>$(MSBuildThisFileDirectory)</ExternalsBuildDirectory>
   </PropertyGroup>
   <PropertyGroup>
     <OutDir>$(ThisFileDirectory)$(LibraryName)\$(PartName)\$(TypeProjectDir)\$(PlatformTarget)\$(PlatformToolsetDirectory)\</OutDir>
@@ -29,6 +30,9 @@
     </BuildMacro>
     <BuildMacro Include="LibraryPartName">
       <Value>$(LibraryPartName)</Value>
+    </BuildMacro>
+    <BuildMacro Include="ExternalsBuildDirectory">
+      <Value>$(ExternalsBuildDirectory)</Value>
     </BuildMacro>
   </ItemGroup>
 </Project>

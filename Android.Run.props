@@ -18,20 +18,20 @@ echo %PATH_TO_PACKAGE_FILE%^(^): error: file not exists.
 goto EndAndroidRun
 )
 
-if not exist "$(SolutionDir)Solution\AndroidNdk.auto.cmd" (
-  echo $(ProjectName): error : not exists $(SolutionDir)Solution\AndroidNdk.auto.cmd
+if not exist "$(SolutionDir)Solution\AndroidSdk.auto.cmd" (
+  echo $(ProjectName): error : not exists $(SolutionDir)Solution\AndroidSdk.auto.cmd
   goto EndAndroidRun
 )
 
-call "$(SolutionDir)Solution\AndroidNdk.auto.cmd"
+call "$(SolutionDir)Solution\AndroidSdk.auto.cmd"
 
-if "%ANDROID_NDK_ROOT%" == "" (
-  echo $(ProjectName): error : ANDROID_NDK_ROOT is empty
+if "%ANDROID_SDK_ROOT%" == "" (
+  echo $(ProjectName): error : ANDROID_SDK_ROOT is empty
   goto EndAndroidRun
 )
 
 rem Проверка наличия девайса для запуска
-set RUN_ADB=%ANDROID_NDK_ROOT%\platform-tools\adb.exe
+set RUN_ADB=%ANDROID_SDK_ROOT%\platform-tools\adb.exe
 
 %RUN_ADB% devices &gt; %TEMP%\adb_devices.txt
 
