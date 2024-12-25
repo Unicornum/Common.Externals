@@ -3,6 +3,8 @@
   <ImportGroup Label="PropertySheets">
     <Import Project="..\FreeType\FreeType.props" />
     <Import Project="..\RmlUi\RmlUi.props" />
+    <Import Project="..\Assimp\Assimp.props" />
+    <Import Project="..\MiniAudio\MiniAudio.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros">
     <ThisFileDirectory>$(MSBuildThisFileDirectory)</ThisFileDirectory>
