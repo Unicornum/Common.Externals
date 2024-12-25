@@ -12,7 +12,7 @@ echo Info: build $(ProjectShortName).lib.hpp file...
 set LibraryName=$(LibraryName)
 set ProjectName=$(ProjectShortName)
 set Prefix=$(PartName).
-set ThisFileDirectory=$(ThisFileDirectory)
+set ThisFileDirectory=$(ExternalsBuildDirectory)
 set IntDir=$(IntDir)
 
 if "%Prefix%" == "." (
