@@ -5,6 +5,7 @@
     <Import Project="..\RmlUi\RmlUi.props" />
     <Import Project="..\Assimp\Assimp.props" />
     <Import Project="..\MiniAudio\MiniAudio.props" />
+    <Import Project="..\TinyObjLoader\TinyObjLoader.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros">
     <ThisFileDirectory>$(MSBuildThisFileDirectory)</ThisFileDirectory>
