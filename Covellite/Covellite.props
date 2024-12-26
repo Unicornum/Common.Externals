@@ -12,6 +12,7 @@
     <Link />
     <Link>
       <LibraryDependencies>Covellite.Api.$(Configuration);Covellite.App.$(Configuration);Covellite.Egl.$(Configuration);Covellite.Events.$(Configuration);Covellite.Expanse.$(Configuration);Covellite.Gui.$(Configuration);Covellite.Os.$(Configuration);GLESv1_CM;GLESv2;GLESv3;EGL;%(LibraryDependencies)</LibraryDependencies>
+      <AdditionalOptions>-static-openmp %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
