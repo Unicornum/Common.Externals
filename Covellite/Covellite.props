@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <ImportGroup Label="PropertySheets">
-    <Import Project="..\FreeType\FreeType.props" />
-    <Import Project="..\RmlUi\RmlUi.props" />
-    <Import Project="..\Assimp\Assimp.props" />
-    <Import Project="..\MiniAudio\MiniAudio.props" />
-    <Import Project="..\TinyObjLoader\TinyObjLoader.props" />
-  </ImportGroup>
+  <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros">
     <ThisFileDirectory>$(MSBuildThisFileDirectory)</ThisFileDirectory>
   </PropertyGroup>
