@@ -1,10 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <ImportGroup Label="PropertySheets">
-    <Import Project="AndroidNdkPath.props" />
-  </ImportGroup>
+  <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup />
-  <ItemDefinitionGroup />
+  <ItemDefinitionGroup>
+    <PostBuildEvent>
+      <Command>@echo off
+
+set AndroidSdkCmd="$(SolutionDir)Solution\AndroidSdk.auto.cmd"
+
+(
+echo @echo off
+echo.
+echo rem !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+echo rem !                This is an automatically generated file                 !
+echo rem !                    all changes will be overwritten                     !
+echo rem !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+echo.
+echo set ANDROID_SDK_ROOT="$(VS_AndroidHome)"
+
+) &gt; %AndroidSdkCmd%
+
+%(Command)
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
   <ItemGroup />
 </Project>

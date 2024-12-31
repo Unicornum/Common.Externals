@@ -1,25 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <ImportGroup Label="PropertySheets" />
+  <ImportGroup Label="PropertySheets">
+    <Import Project="AndroidSDKPath.props" />
+  </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup />
   <ItemDefinitionGroup>
+    <PostBuildEvent />
     <PostBuildEvent>
-      <Command>@echo off
-
-set AndroidNdkCmd="$(SolutionDir)Solution\AndroidNdk.auto.cmd"
-
-(
-echo @echo off
-echo.
-echo rem !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-echo rem !                This is an automatically generated file                 !
-echo rem !                    all changes will be overwritten                     !
-echo rem !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-echo.
-echo set ANDROID_NDK_ROOT="$(VS_AndroidHome)"
-
-) &gt; %AndroidNdkCmd%
+      <Command>echo AndroidNdkPath.props: warning : file is wrong, use AndroidSDKPath.props instead.
 
 %(Command)
 </Command>
