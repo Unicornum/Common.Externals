@@ -318,6 +318,10 @@ void Shutdown(void)
   Proxy::GetInstance()->Shutdown();
 }
 
+void AndroidShutdown(void)
+{
+}
+
 Context * CreateContext(const String & _Name, const Vector2i & _Size,
   RenderInterface * _pRenderInterface = nullptr)
 {
