@@ -7,9 +7,6 @@ namespace mock
 namespace Rml
 {
 
-namespace Core
-{
-
 using String = ::std::string;
 enum class Character : char32_t { Null, Replacement = 0xfffd };
 
@@ -209,7 +206,7 @@ public:
   virtual void SetMouseCursor(const String &) {}
   virtual void SetClipboardText(const String &) {}
   virtual void GetClipboardText(String &) {}
-  virtual void ActivateKeyboard(void) {}
+  virtual void ActivateKeyboard(Vector2f, float) {}
   virtual void DeactivateKeyboard(void) {};
 
 public:
@@ -266,15 +263,31 @@ public:
   {
   public:
     MOCK_METHOD1(LoadFontFace, bool(String));
+    MOCK_METHOD2(LoadFontFace, bool(::std::vector<byte>, String));
   };
 };
+
+namespace Style
+{
+
+enum class FontStyle : uint8_t { Normal, Italic };
+enum class FontWeight : uint8_t { Normal, Bold };
+
+} // namespace Style
 
 namespace
 {
 
-bool LoadFontFace(const String& _Path)
+bool LoadFontFace(const String & _Path)
 {
   return FontDatabase::Proxy::GetInstance()->LoadFontFace(_Path);
+}
+
+bool LoadFontFace(const byte * data, int data_size, const String & font_family,
+  Style::FontStyle style, Style::FontWeight weight)
+{
+  return FontDatabase::Proxy::GetInstance()->LoadFontFace(
+    ::std::vector<byte>{ data, data + data_size }, font_family);
 }
 
 void SetFileInterface(FileInterface * _pInterface)
@@ -318,44 +331,20 @@ bool RemoveContext(const String & _Name)
 
 } // unnamed namespace
 
-} // namespace Core
-
-namespace Controls
-{
-
 class ElementFormControl :
-  public Core::Element
+  public Element
 {
 public:
-  MOCK_CONST_METHOD0(GetValue, Core::String(void));
-  MOCK_METHOD1(SetValue, void(const Core::String &));
+  MOCK_CONST_METHOD0(GetValue, String(void));
+  MOCK_METHOD1(SetValue, void(const String &));
 };
 
-class ElementProgressBar :
-  public Core::Element
+class ElementProgress :
+  public Element
 {
 public:
   MOCK_METHOD1(SetValue, void(float));
 };
-
-class Proxy :
-  public ::alicorn::extension::testing::Proxy<Proxy>
-{
-public:
-  MOCK_METHOD0(Initialise, void(void));
-};
-
-namespace
-{
-
-void Initialise(void)
-{
-  Proxy::GetInstance()->Initialise();
-}
-
-} // unnamed namespace
-
-} // namespace Controls
 
 namespace Debugger
 {
@@ -364,19 +353,19 @@ class Proxy :
   public ::alicorn::extension::testing::Proxy<Proxy>
 {
 public:
-  MOCK_METHOD1(Initialise, bool(Core::Context *));
-  MOCK_METHOD1(SetContext, bool(Core::Context *));
+  MOCK_METHOD1(Initialise, bool(Context *));
+  MOCK_METHOD1(SetContext, bool(Context *));
 };
 
 namespace
 {
 
-bool Initialise(Core::Context * _pContext)
+bool Initialise(Context * _pContext)
 { 
   return Proxy::GetInstance()->Initialise(_pContext);
 }
 
-bool SetContext(Core::Context * _pContext)
+bool SetContext(Context * _pContext)
 {
   return Proxy::GetInstance()->SetContext(_pContext);
 }
