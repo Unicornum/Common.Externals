@@ -879,6 +879,7 @@ EXCLUDE_PATTERNS       = */*.doxygen.ignore/* \
                          */Solution/version.hpp \
                          */Solution/Solution/Externals/* \
                          */Solution/Solution/*/Externals/* \
+                         */Solution/Solution/Externals.Vcpkg/* \
                          */.git/*
 
 # The EXCLUDE_SYMBOLS tag can be used to specify one or more symbol names
