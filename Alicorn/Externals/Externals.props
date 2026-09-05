@@ -3,6 +3,7 @@
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros">
     <ThisFileDirectory>$(MSBuildThisFileDirectory)</ThisFileDirectory>
+    <PlatformToolsetDirectory>$([System.String]::new($(PlatformToolset)).Replace('C', 'c').Replace('v', 'vs').Replace('G', 'g'))</PlatformToolsetDirectory>
   </PropertyGroup>
   <PropertyGroup>
     <IncludePath>$(ThisFileDirectory)include;$(IncludePath)</IncludePath>
@@ -14,6 +15,9 @@
   <ItemGroup>
     <BuildMacro Include="ThisFileDirectory">
       <Value>$(ThisFileDirectory)</Value>
+    </BuildMacro>
+    <BuildMacro Include="PlatformToolsetDirectory">
+      <Value>$(PlatformToolsetDirectory)</Value>
     </BuildMacro>
   </ItemGroup>
 </Project>
